@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DailyBurn</string>
+    <string name="start">Get Started !</string>
+    <string name="gender">Gender</string>
+    <string name="age">Age</string>
+    <string name="hight">Height</string>
+    <string name="weight">Weight</string>
+    <string name="goal">Goal</string>
+    <string-array name="goal">
+        <item>Keep track of calories</item>
+        <item>Keep track of nutrition</item>
+        <item>Lose weight</item>
+        <item>Gain muscle</item>
+        <item>Solve eating disorders</item>
+        <item>Get help to solve health issues</item>
+    </string-array>
+</resources>
