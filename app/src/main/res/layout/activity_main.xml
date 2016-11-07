@@ -40,7 +40,7 @@
             android:text=""
             android:ems="10"
             android:textSize="14dp"
-            android:id="@+id/editText" />
+            android:id="@+id/txtName" />
     </TableRow>
 
     <TableRow
@@ -55,7 +55,8 @@
 
         <RadioGroup
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/gender">
 
             <RadioButton
                 android:text="Female"
@@ -108,7 +109,7 @@
             android:inputType="textPersonName"
             android:text=""
             android:ems="10"
-            android:id="@+id/editText2" />
+            android:id="@+id/txtHight" />
 
     </TableRow>
     <TableRow
@@ -129,8 +130,27 @@
             android:inputType="textPersonName"
             android:text=""
             android:ems="10"
-            android:id="@+id/editText3" />
+            android:id="@+id/txtWeight" />
 
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:text="@string/allergy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_marginRight="45dp"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/allergy"
+            android:id="@+id/spinnerAllergy" />
     </TableRow>
 
     <TableRow
@@ -157,6 +177,7 @@
         android:text="Submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onClick"
         android:id="@+id/button" />
 
 </LinearLayout>
