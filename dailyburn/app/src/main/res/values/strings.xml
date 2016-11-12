@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">DailyBurn</string>
+    <string name="pageTitle">Your Health Plan</string>
+
+    <string name="start">Get Started !</string>
+    <string name="fullName">Full Name:</string>
+
+    <string name="Enter">Submit</string>
+
+    <string name="option">What would you like to do?</string>
+    <string name="optionA">Build Health Plan</string>
+    <string name="optionB">Change your Preferences</string>
+    <string name="optionC">Need Help?</string>
+
+
+    <string name="gender">Gender</string>
+    <string name="age">Age</string>
+    <string name="height">Height(cm)</string>
+    <string name="weight">Weight(kg)</string>
+    <string name="goal">Goal</string>
+    <string-array name="goal">
+        <item>Keep track of calories</item>
+        <item>Keep track of nutrition</item>
+        <item>Lose weight</item>
+        <item>Gain muscle</item>
+        <item>Solve eating disorders</item>
+        <item>Get help to solve health issues</item>
+    </string-array>
+    <string name="allergy">Allergy</string>
+    <string-array name="allergy">
+        <item>None</item>
+        <item>Eggs</item>
+        <item>Fish</item>
+        <item>Milk</item>
+        <item>Peanuts</item>
+        <item>Tree nuts</item>
+        <item>Shellfish</item>
+        <item>Wheat</item>
+        <item>Soy</item>
+    </string-array>
+
+
+</resources>
