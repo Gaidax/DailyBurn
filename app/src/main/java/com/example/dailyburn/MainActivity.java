@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         editAge = (EditText)findViewById(R.id.Age);
         group = (RadioGroup)findViewById(R.id.gender);
 
-
     }
 
     public void onClick(View view){

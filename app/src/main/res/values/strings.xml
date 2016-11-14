@@ -6,6 +6,11 @@
     <string name="hight">Height(cm)</string>
     <string name="weight">Weight(kg)</string>
     <string name="goal">Goal</string>
+
+    <string name="option">What would you like to do?</string>
+    <string name="optionA">Build Health Plan</string>
+    <string name="optionB">Change your Preferences</string>
+    <string name="optionC">Need Help?</string>
     <string-array name="goal">
         <item>Keep track of calories</item>
         <item>Keep track of nutrition</item>
