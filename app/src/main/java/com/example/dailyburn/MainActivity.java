@@ -1,5 +1,6 @@
 package com.example.dailyburn;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         String age = editAge.getText().toString();
 
         int selectedId = group.getCheckedRadioButtonId();
-        RadioButton radioButton = (RadioButton) findViewById(selectedId);
-        String gender = radioButton.getText().toString();
+     //   RadioButton radioButton = (RadioButton) findViewById(selectedId);
+        // String gender = radioButton.getText().toString();
 
         if(name.length() == 0)
         {
@@ -52,7 +53,13 @@ public class MainActivity extends AppCompatActivity {
         {
             editName.requestFocus();
             editName.setError("Enter only letters");
-        }else if(age.length() == 0)
+
+        }else if(selectedId == -1)
+        {
+            Toast.makeText(MainActivity.this,
+                    "Please select your gender", Toast.LENGTH_LONG).show();
+        }
+        else if(age.length() == 0)
         {
             editAge.requestFocus();
             editAge.setError("Field cannot be empty");
@@ -93,11 +100,7 @@ public class MainActivity extends AppCompatActivity {
             editWeight.requestFocus();
             editWeight.setError("The value should be 30-200");
         }
-        else if(selectedId == -1)
-        {
-            Toast.makeText(MainActivity.this,
-                    "Please select your gender", Toast.LENGTH_LONG).show();
-        }
+
         else{
 
             Spinner allergySpinner = (Spinner)findViewById(R.id.spinnerAllergy);
@@ -110,13 +113,19 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, HomeActivity.class);
             intent.putExtra("name", name);
-            intent.putExtra("gender", gender);
+       //     intent.putExtra("gender", gender);
             intent.putExtra("age", age);
             intent.putExtra("weight", weight);
             intent.putExtra("height", height);
             intent.putExtra("allergy", allergy);
             intent.putExtra("goal", goal);
+            Context context = getApplicationContext();
+            CharSequence text = ("Your information is now stored in the app.");
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
             startActivity(intent);
+
         }
 
     }
