@@ -49,7 +49,7 @@
         </TableRow>
 
         <TextView
-            android:text="Food Item"
+            android:text="Food Items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView12"
@@ -101,7 +101,7 @@
                 android:layout_weight="1" />
 
             <Button
-                android:text="Reject"
+                android:text="Edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button3"

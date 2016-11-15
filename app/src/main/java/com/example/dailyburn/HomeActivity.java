@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
 
         TextView welcome = (TextView)findViewById(R.id.txtWelcome) ;
         String message = ("Welcome to your home page " + yourName);
-        welcome.setTextSize(26);
+        welcome.setTextSize(18);
         welcome.setText(message);
 
         final RadioGroup group = (RadioGroup)findViewById(R.id.group);

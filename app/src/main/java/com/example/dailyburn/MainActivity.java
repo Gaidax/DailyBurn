@@ -32,12 +32,21 @@ public class MainActivity extends AppCompatActivity {
         group = (RadioGroup)findViewById(R.id.gender);
 
     }
+    public void onClear(View view) {
+        editName.getText().clear();
+        editAge.getText().clear();
+        editHeight.getText().clear();
+        editWeight.getText().clear();
+        group.clearCheck();
+        getCurrentFocus().clearFocus();
+  }
 
     public void onClick(View view){
         String name = editName.getText().toString();
         String weight = editWeight.getText().toString();
         String height = editHeight.getText().toString();
         String age = editAge.getText().toString();
+
 
         int selectedId = group.getCheckedRadioButtonId();
      //   RadioButton radioButton = (RadioButton) findViewById(selectedId);
@@ -46,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         if(name.length() == 0)
         {
             editName.requestFocus();
-            editName.setError("Field cannot be empty");
+            editName.setError("Name cannot be empty");
         }
 
         else if(!name.matches("[a-zA-Z ]+"))
@@ -62,11 +71,11 @@ public class MainActivity extends AppCompatActivity {
         else if(age.length() == 0)
         {
             editAge.requestFocus();
-            editAge.setError("Field cannot be empty");
+            editAge.setError("Age cannot be empty");
         }else if(!age.matches("^[0-9]*$"))
         {
             editAge.requestFocus();
-            editAge.setError("Enter only digit");
+            editAge.setError("Enter only whole numbers");
         }else if(Integer.parseInt(age)<16 || Integer.parseInt(age)>65)
         {
             editAge.requestFocus();
@@ -75,11 +84,11 @@ public class MainActivity extends AppCompatActivity {
         else if(height.length() == 0)
         {
             editHeight.requestFocus();
-            editHeight.setError("Field cannot be empty");
+            editHeight.setError("Height cannot be empty");
         }else if(!height.matches("^[1-9]\\d*(\\.\\d+)?$"))
         {
             editHeight.requestFocus();
-            editHeight.setError("Enter only digit and cannot be less than 0");
+            editHeight.setError("Enter only numbers and it cannot be less than 0");
         }else if(Double.parseDouble(height)<80 ||Double.parseDouble(height)>200 )
         {
             editHeight.requestFocus();
@@ -89,12 +98,12 @@ public class MainActivity extends AppCompatActivity {
         else if(weight.length() == 0)
         {
             editWeight.requestFocus();
-            editWeight.setError("Field cannot be empty");
+            editWeight.setError("Weight cannot be empty");
         }
         else if(!weight.matches("^[1-9]\\d*(\\.\\d+)?"))
         {
             editWeight.requestFocus();
-            editWeight.setError("Enter only digit and cannot be less than 0");
+            editWeight.setError("Enter only numbers and it cannot be less than 0");
         }else if(Double.parseDouble(weight)<30 ||Double.parseDouble(weight)>200)
         {
             editWeight.requestFocus();
@@ -129,5 +138,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
 
 }

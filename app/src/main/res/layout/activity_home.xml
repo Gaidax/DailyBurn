@@ -19,7 +19,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtWelcome" />
+            android:id="@+id/txtWelcome"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_height="wrap_content"
@@ -28,7 +29,7 @@
             android:textSize="16sp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
-           />
+            android:textAlignment="center" />
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -37,24 +38,26 @@
 
             <RadioButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:id="@+id/option1"
                 android:text="@string/optionA"
-                android:layout_weight="1" />
+                android:textAlignment="center" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/option3"
                 android:text="@string/optionC"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textAlignment="center" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/option2"
                 android:text="@string/optionB"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textAlignment="center" />
         </RadioGroup>
     </LinearLayout>
 
