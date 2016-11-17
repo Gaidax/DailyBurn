@@ -22,7 +22,7 @@
             android:text="Your Health Plan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView8"
+            android:id="@+id/txtHealthPlan"
             android:textStyle="normal|bold"
             android:textAlignment="center"
             android:textSize="24sp"
@@ -36,7 +36,7 @@
                 android:text="Date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView10"
+                android:id="@+id/txtDate"
                 android:textSize="20sp"
                 android:textStyle="normal|bold" />
 
@@ -52,7 +52,7 @@
             android:text="Food Items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView12"
+            android:id="@+id/txtFoodItems"
             android:textStyle="normal|bold"
             android:textSize="20sp"
             android:layout_marginTop="30dp"
@@ -97,21 +97,22 @@
                 android:text="Accept"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button4"
-                android:layout_weight="1" />
+                android:id="@+id/btnAccept"
+                android:layout_weight="1"
+                android:onClick="onClick" />
 
             <Button
                 android:text="Edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button3"
+                android:id="@+id/btnEdit"
                 android:layout_weight="1" />
 
             <Button
                 android:text="Create New"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button2"
+                android:id="@+id/btnCreateNew"
                 android:layout_weight="1" />
         </LinearLayout>
 
