@@ -1,6 +1,7 @@
 package com.example.dailyburn;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -105,11 +106,13 @@ public class defaultPlan extends AppCompatActivity {
 
     }
     public void onClick(View view){
+        Intent intent = new Intent(this, date_time_picker.class);
         Context context = getApplicationContext();
-        CharSequence text = ("Thank You for accepting the Plan\n Your Plan is now saved.");
+        CharSequence text = ("Thank you for accepting the plan\nyour plan is now saved.");
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+        startActivity(intent); // Starts New Activity
     }
 
 }
