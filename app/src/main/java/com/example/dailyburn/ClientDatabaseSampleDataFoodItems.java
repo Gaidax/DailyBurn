@@ -1,54 +1,39 @@
 package com.example.dailyburn;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//import android.support.v7.app.AppCompatActivity;
+/**
+ * Created by Rukshar on 2016-11-25.
+ */
 
-        public class MainActivity extends AppCompatActivity {
+public class ClientDatabaseSampleDataFoodItems extends AppCompatActivity {
 
-            ClientDatabase dbRF = new ClientDatabase(MainActivity.this);
+    ClientDatabase dbRF = new ClientDatabase(this);
 
-            @Override
-            protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
+//public DatabaseHandler dbRF = null;
 
-                //  dbRF.createTables();
-                //ClientDatabaseSampleDataFoodItems test = new ClientDatabaseSampleDataFoodItems();
-                // test.ClientDatabaseSampleDataFoodItemsTry();
-                add2();
+    public void ClientDatabaseSampleDataFoodItemsTry() {
 
-                //sets the main layout of the activity
-        setContentView(R.layout.activity_main);
-        //initializes the calendarview
-        //dbRF = new ClientDatabaseSampleDataFoodItems().ClientDatabaseSampleDataFoodItems(this);
+        String checker = dbRF.getDatabaseName();
+        if (checker.equals(null)) {
+            AddBaseFoodItems(dbRF);
+            addRandomFoodItems(dbRF);
+            addProfileItem(dbRF);
+            addItemToHistory(dbRF);
+        }
+        else { Log.d("MattSample", "broken else");}
+        try {
 
-        Button toCalendar = (Button)findViewById(R.id.toCalendar);
-
-
-    }
-
-
-    public void toCalendarActivity(View view){
-        Intent intent = new Intent(this, CalendarViewActivity.class);
-        startActivity(intent);
-    }
-
-
-    void add2(){
-        AddBaseFoodItems(dbRF);
-        addRandomFoodItems(dbRF);
-        addProfileItem(dbRF);
-        addItemToHistory(dbRF);
+        }
+        catch (Exception r) {
+            Log.d("MattSample", "broken catch");
+        }
     }
 
     public ClientDatabase ClientDatabaseSampleDataFoodItems(ClientDatabase dbRF) {
@@ -149,15 +134,6 @@ import java.util.List;
         itemTags.add("monounsaturates");
         itemNutritionFacts.add("monounsaturates:0.01:g");// 20-30 of daily calorie intake% 1g fat = 9 calories
         itemDescription.add("General:monounsaturates");
-        foodItem = new ItemFood(itemName, itemTags, itemNutritionFacts, itemMinerals, itemVitamins, itemDescription);
-        dbRF.addFoodItem(foodItem);
-        removeAllFromFoodItemVariables();
-        ////////////////////////////////////////////////////////////////////////////////////////////
-        itemName = "Polyunsaturates";
-        itemTags.add("polyunsaturated");
-        itemTags.add("polyunsaturates");
-        itemNutritionFacts.add("polyunsaturates:0.01:g");// 20-30 of daily calorie intake% 1g fat = 9 calories
-        itemDescription.add("General:polyunsaturates");
         foodItem = new ItemFood(itemName, itemTags, itemNutritionFacts, itemMinerals, itemVitamins, itemDescription);
         dbRF.addFoodItem(foodItem);
         removeAllFromFoodItemVariables();
@@ -309,17 +285,17 @@ import java.util.List;
         Date _dayCreated = null;
         Date _dayReplaced = null;
 
-        String toBeParsed = "2016/11/1 11:00:00";
-        String toBeParsed2 = "2116/11/1 11:00:00";
+        String toBeParsed = "2016/11/1 11:00:00 am";
+        String toBeParsed2 = "2116/11/1 11:00:00 am";
 
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss aa");
         try {
             _dayCreated = formatter.parse(toBeParsed);
             _dayReplaced = formatter.parse(toBeParsed2);
 
         } catch(Exception e){}
-        //  ItemProfileInfo itemProfileInfo = new ItemProfileInfo(7777, _currentVersion, _profileName, _weightKg, _age, _height, _allergy, _gender, _role, _dayCreated, _dayReplaced);
-        //  dbRF.addProfileItem(itemProfileInfo);
+        //   ItemProfileInfo itemProfileInfo = new ItemProfileInfo(7777, _currentVersion, _profileName, _weightKg, _height, _allergy, _age, _gender, _role, _dayCreated, _dayReplaced);
+        // dbRF.addProfileItem(itemProfileInfo);
     }
 
 
@@ -331,13 +307,13 @@ import java.util.List;
         Date dateYearMonthDayHourMinuteSecond = new Date(2016, 10, 12, 12, 12, 12);
         boolean confirmed;
 
-        foodId = dbRF.getFoodItemByName("Broccoli Raw").getFoodItemId();
+        foodId = 7777;
         quantityGrams = 100.0f;
         profileId = 7777;
-        String toBeParsed = "2016/11/22 11:00:00";
+        String toBeParsed = "2016/11/22 12:00:00 am";
         confirmed = false;
 
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss aa");
         try {
             dateYearMonthDayHourMinuteSecond = formatter.parse(toBeParsed);
         } catch(Exception e){}
@@ -348,3 +324,6 @@ import java.util.List;
     }
 
 }
+/*public class ClientDatabaseSampleDataFoodItems {
+
+}*/

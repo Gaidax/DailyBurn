@@ -1,20 +1,18 @@
 package com.example.dailyburn;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
 
-public class date_time_picker extends AppCompatActivity implements
+public class date_time_picker extends Activity implements
         View.OnClickListener {
 
     Button btnDatePicker, btnTimePicker;

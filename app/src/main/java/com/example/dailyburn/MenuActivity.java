@@ -1,18 +1,17 @@
 package com.example.dailyburn;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.ViewGroup;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class HomeActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_menu);
 
         final String yourName = getIntent().getStringExtra("name");
         final String gender = getIntent().getStringExtra("gender");
@@ -32,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup arg0, int id) {
                 switch (id) {
                     case R.id.option1:
-                        Intent intent = new Intent (HomeActivity.this, defaultPlan.class);
+                        Intent intent = new Intent (MenuActivity.this, DefaultPlanView.class);
                         intent.putExtra("name", yourName);
                         intent.putExtra("gender", gender);
                         intent.putExtra("age", age);

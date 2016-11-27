@@ -8,24 +8,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.dailyburn.defaultPlan">
+    tools:context="com.example.dailyburn.DefaultPlanView">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:weightSum="1"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:weightSum="1">
+        >
 
         <TextView
             android:text="Your Health Plan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtHealthPlan"
-            android:textStyle="normal|bold"
+            android:id="@+id/textView8"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:layout_marginBottom="40dp" />
 
         <TableRow
@@ -36,32 +35,33 @@
                 android:text="Date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtDate"
-                android:textSize="20sp"
+                android:id="@+id/textView10"
+                android:textSize="14sp"
                 android:textStyle="normal|bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/date"
-                android:textSize="20sp"
+                android:textSize="14sp"
                 android:layout_marginLeft="60dp" />
         </TableRow>
 
         <TextView
-            android:text="Food Items"
+            android:text="Food Item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtFoodItems"
-            android:textStyle="normal|bold"
-            android:textSize="20sp"
+            android:id="@+id/textView12"
+            android:textSize="14sp"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:textStyle="normal|bold" />
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="213dp"
-            android:id="@+id/tableLayout">
+            android:id="@+id/tableLayout"
+            android:layout_height="125dp"
+            android:layout_weight="0.17">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView9"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:width="90sp"/>
 
                 <TextView
@@ -80,8 +80,7 @@
                     android:layout_height="165dp"
                     android:id="@+id/foodItem"
                     android:textAlignment="textStart"
-                    android:textSize="14sp"
-                    android:textStyle="normal|bold" />
+                    android:textSize="14sp" />
 
             </TableRow>
 
@@ -97,23 +96,22 @@
                 android:text="Accept"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnAccept"
+                android:id="@+id/button4"
                 android:layout_weight="1"
-                android:onClick="onClick" />
+                android:onClick="OnClickAccept" />
 
             <Button
                 android:text="Edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnEdit"
+                android:id="@+id/button3"
                 android:layout_weight="1" />
 
             <Button
                 android:text="Create New"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnCreateNew"
-                android:layout_weight="1" />
+                android:id="@+id/btnCreate" />
         </LinearLayout>
 
     </LinearLayout>

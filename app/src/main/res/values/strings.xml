@@ -3,7 +3,7 @@
     <string name="start">Get Started !</string>
     <string name="gender">Gender</string>
     <string name="age">Age</string>
-    <string name="height">Height(cm)</string>
+    <string name="hight">Height(cm)</string>
     <string name="weight">Weight(kg)</string>
     <string name="goal">Goal</string>
 
@@ -33,10 +33,10 @@
 
     </string-array>
     <string name="notificationMin">Select Time</string>
-        <string-array name="notificationMin">
-            <item>5  minutes</item>
+    <string-array name="notificationMin">
+        <item>5  minutes</item>
         <item>10 minutes</item>
         <item>15 minutes</item>
-        </string-array>
+    </string-array>
 
 </resources>
