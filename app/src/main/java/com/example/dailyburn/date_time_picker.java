@@ -3,12 +3,15 @@ package com.example.dailyburn;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -17,12 +20,12 @@ public class date_time_picker extends Activity implements
 
     Button btnDatePicker, btnTimePicker;
     EditText txtDate, txtTime;
-    private int mYear, mMonth, mDay, mHour, mMinute;
+    private int mYear, mMonth, mDay, mHour, mMinute, mType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_date_time_picker);
+        setContentView(R.layout.activity_set_reminder_notification);
 
         btnDatePicker = (Button) findViewById(R.id.btn_date);
         btnTimePicker = (Button) findViewById(R.id.btn_time);
@@ -32,15 +35,15 @@ public class date_time_picker extends Activity implements
         btnTimePicker.setOnClickListener(this);
 
     }
- /*   Spinner spinner = (Spinner) findViewById(R.id.spinner);
-    // Create an ArrayAdapter using the string array and a default spinner layout
-    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-            R.array.notificationMin, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-   // adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-   // spinner.setAdapter(adapter);
-*/
+    /*   Spinner spinner = (Spinner) findViewById(R.id.spinner);
+       // Create an ArrayAdapter using the string array and a default spinner layout
+       ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+               R.array.notificationMin, android.R.layout.simple_spinner_item);
+   // Specify the layout to use when the list of choices appears
+      // adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+   // Apply the adapter to the spinner
+      // spinner.setAdapter(adapter);
+   */
     @Override
     public void onClick(View v) {
 
@@ -72,6 +75,7 @@ public class date_time_picker extends Activity implements
             final Calendar c = Calendar.getInstance();
             mHour = c.get(Calendar.HOUR_OF_DAY);
             mMinute = c.get(Calendar.MINUTE);
+            mType = c.get(Calendar.AM_PM);
 
             // Launch Time Picker Dialog
             TimePickerDialog timePickerDialog = new TimePickerDialog(this,
@@ -81,19 +85,30 @@ public class date_time_picker extends Activity implements
                         public void onTimeSet(TimePicker view, int hourOfDay,
                                               int minute) {
 
-                            txtTime.setText(hourOfDay + ":" + minute);
+                            String AM_PM;
+                            if (hourOfDay < 12) {
+                                AM_PM = "AM";
+                            } else {
+                                AM_PM = "PM";
+                            }
+
+                            txtTime.setText(hourOfDay + ":" + minute + " " + AM_PM);
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
         }
     }
+
+
+
+
+    public void onHit(View view){
+        Intent intent = new Intent(date_time_picker.this, ProgressSurvey.class);
+        Context context = getApplicationContext();
+        CharSequence text = ("Thank You. You will be notified based on your chosen preferences !! ");
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+        startActivity(intent);
+    }
 }
-/*public class date_time_picker extends AppCompatActivity {
-
-
-   /* @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_date_time_picker);
-    }*/
-

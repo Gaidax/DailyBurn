@@ -50,6 +50,7 @@ public class ClientDatabase extends SQLiteOpenHelper {
     //private static final String TABLE_RECENTFOODITEMS = "RecentFoodItemsTable";
     private static final String TABLE_RESTRICTEDDISLIKEDFOODITEMS = "restrictedDislikedFoodItemsTable";
     private static final String TABLE_FOOD_ITEMS = "foodItemsTable";
+    private static final String TABLE_NOTIFICATIONS_ITEMS = "notificationsSelections";   // TABLE TO STORE USER NORIFICATIONS
 
     //Food Item Table
     //
@@ -90,14 +91,19 @@ public class ClientDatabase extends SQLiteOpenHelper {
     private static final String KEY_FOODITEM_DESCRIPTION = "foodItemDescription";
 
 
+    // NOTIFICATIONS TABLE ITEMS
+    private static final String KEY_REMINDER_NOTIFICATIONS_ID = "remindNotificationsID";
+    private static final String KEY_REMINDER_NAME = "reminderName";
+  //  private static final String FEEDBACK_NOTIFICATIONS_ID = "feedbackNotificationsID";
+
+
 
     public ClientDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     // Creating Tables
-    @Override
-    public void onCreate(SQLiteDatabase db) {
+    @Override    public void onCreate(SQLiteDatabase db) {
 
         final String CREATE_FOOD_HISTORY_TABLE = "CREATE TABLE " +  TABLE_FOOD_HISTORY + " ( "
                 + KEY_FOODHISTORY_PRIMARYID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -144,11 +150,18 @@ public class ClientDatabase extends SQLiteOpenHelper {
                 + KEY_FOODITEM_VITAMINFACTS + " TEXT, "
                 + KEY_FOODITEM_DESCRIPTION + " TEXT "
                 + ");";
+
+        final String CREATE_NOTIFICATIONS_TABLE = "CREATE TABLE " + TABLE_NOTIFICATIONS_ITEMS + " ("
+                + KEY_REMINDER_NOTIFICATIONS_ID + "INTEGER PRIMARY KEY AUTOINCREMENT ,"
+                + KEY_REMINDER_NAME + "TEXT "
+                + ");";
+             //   + "FOREIGN KEY ("+KEY_REMINDER_NOTIFICATIONS_ID+") REFERENCES "+TABLE_PROFILES+" ("+KEY_PROFILE_ID+"));";
         try {
             db.execSQL(CREATE_FOOD_ITEMS_TABLE);
             db.execSQL(CREATE_PROFILE_TABLE);
             db.execSQL(CREATE_RESTRICTED_ITEMS_TABLE);
             db.execSQL(CREATE_FOOD_HISTORY_TABLE);
+            db.execSQL(CREATE_NOTIFICATIONS_TABLE);
         } catch(Exception e){
             Log.d("boom", "---------------------------------------------------------");}
     }
@@ -215,6 +228,7 @@ public class ClientDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTRICTEDDISLIKEDFOODITEMS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD_ITEMS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTIFICATIONS_ITEMS);
         // Create tables again
         onCreate(db);
     }
@@ -225,6 +239,7 @@ public class ClientDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTRICTEDDISLIKEDFOODITEMS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD_ITEMS);
+        db.execSQL("DROP TABLE IF EXISTS" +TABLE_NOTIFICATIONS_ITEMS);
         //  onCreate(db);
     }
 
@@ -538,7 +553,9 @@ public class ClientDatabase extends SQLiteOpenHelper {
         // return Restaurant list
         return ProfileItemList;
     }
+/*
 
+ */
 
 
 

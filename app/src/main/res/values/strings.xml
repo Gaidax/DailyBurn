@@ -34,9 +34,16 @@
     </string-array>
     <string name="notificationMin">Select Time</string>
     <string-array name="notificationMin">
-        <item>5  minutes</item>
+        <item>None</item>
+        <item>5 minutes</item>
         <item>10 minutes</item>
         <item>15 minutes</item>
     </string-array>
 
+   <string name="feedbackOptions"> Select Frequency</string>
+    <string-array name="feedbackOptions">
+        <item>None</item>
+        <item> Daily</item>
+        <item> Weekly</item>
+    </string-array>
 </resources>
