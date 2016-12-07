@@ -104,7 +104,7 @@ public class date_time_picker extends Activity implements  View.OnClickListener 
             txtTime.setError("Please Select the desired time to Proceed !! ");
         }
         else {
-            Intent intent = new Intent(date_time_picker.this, ProgressSurvey.class);
+            Intent intent = new Intent(date_time_picker.this, FeedBackInfo.class);
             Context context = getApplicationContext();
             CharSequence text = ("Thank You. You will be notified based on your chosen preferences !! ");
             int duration = Toast.LENGTH_LONG;

@@ -50,13 +50,20 @@ public class ClientDatabase extends SQLiteOpenHelper {
     //private static final String TABLE_RECENTFOODITEMS = "RecentFoodItemsTable";
     private static final String TABLE_RESTRICTEDDISLIKEDFOODITEMS = "restrictedDislikedFoodItemsTable";
     private static final String TABLE_FOOD_ITEMS = "foodItemsTable";
-    private static final String TABLE_NOTIFICATIONS_ITEMS = "notificationsSelections";   // TABLE TO STORE USER NORIFICATIONS
-
+    private static final String TABLE_NOTIFICATIONS_ITEMS = "notificationsSelections";// TABLE TO STORE USER NORIFICATIONS
+    private static final String TABLE_FEEDBACK_ITEMS = "feedbackSelections";
     //Food Item Table
     //
 
     //Profile Table
     //
+
+    // Feedback table Items
+
+  /*  private static  final String KEY_FeedBack_ID = "feedbackID";
+    private static final String KEY_FeedBack_Yes = "feedbackYes";
+    private static final String KEY_FeedBack_No = "feedbackNo";*/
+
 
     //Food item history table
     private static final String KEY_FOODHISTORY_PRIMARYID = "foodHistoryPKID";
@@ -92,9 +99,9 @@ public class ClientDatabase extends SQLiteOpenHelper {
 
 
     // NOTIFICATIONS TABLE ITEMS
-    private static final String KEY_REMINDER_NOTIFICATIONS_ID = "remindNotificationsID";
+  /*  private static final String KEY_REMINDER_NOTIFICATIONS_ID = "remindNotificationsID";
     private static final String KEY_REMINDER_NAME = "reminderName";
-  //  private static final String FEEDBACK_NOTIFICATIONS_ID = "feedbackNotificationsID";
+  //  private static final String FEEDBACK_NOTIFICATIONS_ID = "feedbackNotificationsID";*/
 
 
 
@@ -151,17 +158,25 @@ public class ClientDatabase extends SQLiteOpenHelper {
                 + KEY_FOODITEM_DESCRIPTION + " TEXT "
                 + ");";
 
-        final String CREATE_NOTIFICATIONS_TABLE = "CREATE TABLE " + TABLE_NOTIFICATIONS_ITEMS + " ("
+      /*  final String CREATE_FEEDBACK_ITEMS_TABLE = "CREATE TABLE " + TABLE_FEEDBACK_ITEMS + " ( "
+                + KEY_FeedBack_ID + "INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + KEY_FeedBack_Yes + "TEXT ,"
+                + KEY_FeedBack_No + "TEXT ,"
+                + "FOREIGN KEY ("+KEY_FeedBack_ID +") REFERENCES "+TABLE_PROFILES+" ("+KEY_PROFILE_ID+")"
+                +");";*/
+
+        /*final String CREATE_NOTIFICATIONS_TABLE = "CREATE TABLE " + TABLE_NOTIFICATIONS_ITEMS + " ("
                 + KEY_REMINDER_NOTIFICATIONS_ID + "INTEGER PRIMARY KEY AUTOINCREMENT ,"
                 + KEY_REMINDER_NAME + "TEXT "
-                + ");";
+                + ");";*/
              //   + "FOREIGN KEY ("+KEY_REMINDER_NOTIFICATIONS_ID+") REFERENCES "+TABLE_PROFILES+" ("+KEY_PROFILE_ID+"));";
         try {
             db.execSQL(CREATE_FOOD_ITEMS_TABLE);
             db.execSQL(CREATE_PROFILE_TABLE);
             db.execSQL(CREATE_RESTRICTED_ITEMS_TABLE);
             db.execSQL(CREATE_FOOD_HISTORY_TABLE);
-            db.execSQL(CREATE_NOTIFICATIONS_TABLE);
+          //  db.execSQL(CREATE_FEEDBACK_ITEMS_TABLE);
+          //  db.execSQL(CREATE_NOTIFICATIONS_TABLE);
         } catch(Exception e){
             Log.d("boom", "---------------------------------------------------------");}
     }
@@ -228,7 +243,8 @@ public class ClientDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTRICTEDDISLIKEDFOODITEMS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD_ITEMS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTIFICATIONS_ITEMS);
+       // db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTIFICATIONS_ITEMS);
+      //  db.execSQL("DROP TABLE IF EXSISTS" +TABLE_FEEDBACK_ITEMS);
         // Create tables again
         onCreate(db);
     }
@@ -239,7 +255,8 @@ public class ClientDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTRICTEDDISLIKEDFOODITEMS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD_ITEMS);
-        db.execSQL("DROP TABLE IF EXISTS" +TABLE_NOTIFICATIONS_ITEMS);
+     //   db.execSQL("DROP TABLE IF EXISTS" +TABLE_NOTIFICATIONS_ITEMS);
+      //  db.execSQL("DROP TABLE IF EXISTS" +TABLE_FEEDBACK_ITEMS);
         //  onCreate(db);
     }
 
@@ -604,7 +621,33 @@ public class ClientDatabase extends SQLiteOpenHelper {
         return toBeReturned;
     }
 
+    /*void addFeedbackItem(FeedBackInfo FeedBackInfo){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(KEY_FeedBack_ID, FeedBackInfo.getFeedbackId() );
+        values.put(KEY_FeedBack_Yes, FeedBackInfo.getFeedbackYes());
+        values.put(KEY_FeedBack_No, FeedBackInfo.getFeedbackNo());
+
+        db.insert(TABLE_FEEDBACK_ITEMS, null, values);
+        db.close();
+    }*/
+
+    /*FeedBackInfo getFeedBackInfoById(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_FEEDBACK_ITEMS, new String[] {KEY_FeedBack_ID, KEY_FeedBack_Yes, KEY_FeedBack_No, KEY_PROFILE_ID}, KEY_FeedBack_ID + "=?" , new String[] {String.valueOf(id)}, null, null, null, null );
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        FeedBackInfo FeedBack = new FeedBackInfo(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), Integer.parseInt(cursor.getString(4))));
+        cursor.close();
+        db.close();
+        return FeedBack;
+    }*/
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 

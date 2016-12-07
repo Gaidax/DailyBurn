@@ -20,7 +20,7 @@
         <activity android:name=".date_time_picker" />
         <activity android:name=".CalendarViewActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ProgressSurvey"></activity>
+        <activity android:name=".FeedBackInfo"></activity>
     </application>
 
 </manifest>
