@@ -15,12 +15,11 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class date_time_picker extends Activity implements
-        View.OnClickListener {
+public class date_time_picker extends Activity implements  View.OnClickListener {
 
-    Button btnDatePicker, btnTimePicker;
-    EditText txtDate, txtTime;
-    private int mYear, mMonth, mDay, mHour, mMinute, mType;
+    Button btnDatePicker, btnTimePicker, btnSaveNotification;
+    EditText txtDate, txtTime, reminderName;
+    int mYear, mMonth, mDay, mHour, mMinute, mType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,23 +28,22 @@ public class date_time_picker extends Activity implements
 
         btnDatePicker = (Button) findViewById(R.id.btn_date);
         btnTimePicker = (Button) findViewById(R.id.btn_time);
+        btnSaveNotification = (Button) findViewById(R.id.btnSet);
         txtDate = (EditText) findViewById(R.id.in_date);
         txtTime = (EditText) findViewById(R.id.in_time);
+        reminderName = (EditText) findViewById(R.id.txtReminderName);
         btnDatePicker.setOnClickListener(this);
         btnTimePicker.setOnClickListener(this);
+        btnSaveNotification.setOnClickListener(this);
+
 
     }
-    /*   Spinner spinner = (Spinner) findViewById(R.id.spinner);
-       // Create an ArrayAdapter using the string array and a default spinner layout
-       ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-               R.array.notificationMin, android.R.layout.simple_spinner_item);
-   // Specify the layout to use when the list of choices appears
-      // adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-   // Apply the adapter to the spinner
-      // spinner.setAdapter(adapter);
-   */
-    @Override
+
     public void onClick(View v) {
+
+        String date = txtDate.getText().toString();
+        String time = txtTime.getText().toString();
+        String ReminderName = reminderName.getText().toString();
 
         if (v == btnDatePicker) {
 
@@ -68,16 +66,11 @@ public class date_time_picker extends Activity implements
                         }
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
+
         }
-        if (v == btnTimePicker) {
 
-            // Get Current Time
-            final Calendar c = Calendar.getInstance();
-            mHour = c.get(Calendar.HOUR_OF_DAY);
-            mMinute = c.get(Calendar.MINUTE);
-            mType = c.get(Calendar.AM_PM);
+         else if (v == btnTimePicker) {
 
-            // Launch Time Picker Dialog
             TimePickerDialog timePickerDialog = new TimePickerDialog(this,
                     new TimePickerDialog.OnTimeSetListener() {
 
@@ -96,19 +89,32 @@ public class date_time_picker extends Activity implements
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
+
+        }
+
+        else if (ReminderName.length() == 0) {
+            reminderName.requestFocus();
+            reminderName.setError("Please Enter your Reminder Name !! ");
+        }   else if (date.length() == 0) {
+            txtDate.requestFocus();
+            txtDate.setError("Please Select the Date to Proceed !! ");
+        }
+        else if (time.length() == 0) {
+            txtTime.requestFocus();
+            txtTime.setError("Please Select the desired time to Proceed !! ");
+        }
+        else {
+            Intent intent = new Intent(date_time_picker.this, ProgressSurvey.class);
+            Context context = getApplicationContext();
+            CharSequence text = ("Thank You. You will be notified based on your chosen preferences !! ");
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            startActivity(intent);
         }
     }
-
-
-
-
-    public void onHit(View view){
-        Intent intent = new Intent(date_time_picker.this, ProgressSurvey.class);
-        Context context = getApplicationContext();
-        CharSequence text = ("Thank You. You will be notified based on your chosen preferences !! ");
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        startActivity(intent);
-    }
 }
+
+
+
+

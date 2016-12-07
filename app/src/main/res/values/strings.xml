@@ -41,6 +41,10 @@
     </string-array>
 
    <string name="feedbackOptions"> Select Frequency</string>
+    <string name="how_well_did_you_follow_your_plan">How Well did you follow your Plan ?</string>
+    <string name="no_i_did_not_follow_my_plan">No, I did not follow my Plan</string>
+    <string name="pick_one_of_the_following">Pick One of the following</string>
+    <string name="yes_i_followed_my_plan">Yes, I followed my Plan</string>
     <string-array name="feedbackOptions">
         <item>None</item>
         <item> Daily</item>

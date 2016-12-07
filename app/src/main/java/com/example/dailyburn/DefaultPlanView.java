@@ -117,8 +117,8 @@ public class DefaultPlanView extends AppCompatActivity {
     public void OnClickAccept(View v) {
         Intent intent = new Intent(this, date_time_picker.class);
         Context context = getApplicationContext();
-        CharSequence text = ("Thank You for Accepting the Plan\n Your Plan is now saved.");
-        int duration = Toast.LENGTH_SHORT;
+        CharSequence text = ("Thank You for Accepting the Plan\n Your Plan is now saved !! ");
+        int duration = Toast.LENGTH_LONG;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
         startActivity(intent);
