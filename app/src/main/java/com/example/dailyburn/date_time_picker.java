@@ -20,7 +20,7 @@ public class date_time_picker extends Activity implements  View.OnClickListener 
     Button btnDatePicker, btnTimePicker, btnSaveNotification;
     EditText txtDate, txtTime, reminderName;
     int mYear, mMonth, mDay, mHour, mMinute, mType;
-
+    ClientDatabase dbRF;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +104,8 @@ public class date_time_picker extends Activity implements  View.OnClickListener 
             txtTime.setError("Please Select the desired time to Proceed !! ");
         }
         else {
-            Intent intent = new Intent(date_time_picker.this, progress_survey.class);
+            dbRF = new ClientDatabase(this);
+            Intent intent = new Intent(date_time_picker.this, ProgressSurvey.class);
             Context context = getApplicationContext();
             CharSequence text = ("Thank You. You will be notified based on your chosen preferences !! ");
             int duration = Toast.LENGTH_LONG;

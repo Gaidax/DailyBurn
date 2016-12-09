@@ -32,7 +32,7 @@ public class SurveyPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_survey);
 
-        dbRF = new ClientDatabase(this);
+        dbRF = new ClientDatabase(SurveyPage.this);
 
 
         editName = (EditText)findViewById(R.id.txtName);

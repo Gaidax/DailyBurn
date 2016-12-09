@@ -8,20 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.dailyburn.progress_survey">
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtTitle"
-        android:layout_alignStart="@+id/btnYes"
-        android:layout_marginTop="42dp"
-        android:id="@+id/txtChooseOne"
-        android:text="@string/pick_one_of_the_following"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textStyle="normal|bold" />
+    tools:context="com.example.dailyburn.ProgressSurvey">
 
     <TextView
         android:text="@string/how_well_did_you_follow_your_plan"
@@ -36,24 +23,46 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <RadioButton
-        android:text="@string/yes_i_followed_my_plan"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnYes"
+        android:layout_marginTop="21dp"
+        android:id="@+id/txtChooseOne"
+        android:text="@string/pick_one_of_the_following"
         android:textAlignment="center"
-        android:layout_below="@+id/txtChooseOne"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp" />
+        android:textSize="16sp"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/txtTitle"
+        android:layout_centerHorizontal="true" />
 
-    <RadioButton
-        android:text="@string/no_i_did_not_follow_my_plan"
+    <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnNo"
-        android:textAlignment="center"
-        android:layout_below="@+id/btnYes"
-        android:layout_alignStart="@+id/btnYes"
-        android:layout_marginTop="29dp" />
+        android:id="@+id/radioGroup"
+        android:layout_marginTop="41dp"
+        android:layout_height="90dp"
+        android:layout_below="@+id/txtChooseOne"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:text="Yes, I followed my Plan"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:id="@+id/btnYes"
+            android:textAlignment="center"
+            android:layout_alignBaseline="@+id/txtChooseOne"
+            android:layout_alignBottom="@+id/txtChooseOne"
+            android:layout_alignStart="@+id/txtChooseOne" />
+
+        <RadioButton
+            android:text="No, I did not follow my Plan"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:id="@+id/btnNo"
+            android:textAlignment="center"
+            android:layout_below="@+id/btnYes"
+            android:layout_alignStart="@+id/btnYes"
+            android:layout_marginTop="29dp" />
+
+    </RadioGroup>
 
 </RelativeLayout>

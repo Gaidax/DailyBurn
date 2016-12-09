@@ -21,7 +21,7 @@
         <activity android:name=".CalendarViewActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".FeedBackInfo" />
-        <activity android:name=".progress_survey"></activity>
+        <activity android:name=".ProgressSurvey"></activity>
     </application>
 
 </manifest>
