@@ -23,14 +23,14 @@ public class ProgressSurvey extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId){
                 if(checkedId == R.id.btnYes){
-                    response  = "Yes I followed my Plan";
+                    response  = "Yes, I followed my Plan";
                 }
                 else if(checkedId == R.id.btnNo){
                     response = "No, I did not follow my Plan";
                 }
                 dbRF.addFeedbackItem(response);
 
-                Toast.makeText(ProgressSurvey.this, "You selected " +response+ "\n     Your response is stored",
+                Toast.makeText(ProgressSurvey.this, "You selected " +response+ "\n Your response is stored",
                         Toast.LENGTH_LONG).show();
             }
 

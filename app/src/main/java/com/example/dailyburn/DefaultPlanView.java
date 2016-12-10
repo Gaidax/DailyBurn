@@ -26,6 +26,7 @@ public class DefaultPlanView extends AppCompatActivity {
         final Button createNew = (Button) findViewById(R.id.btnCreate);
 
 
+
         TextView date = (TextView)findViewById(R.id.date);
         TextView food = (TextView)findViewById(R.id.foodItem);
         TableLayout table = (TableLayout)findViewById(R.id.tableLayout);
@@ -54,6 +55,7 @@ public class DefaultPlanView extends AppCompatActivity {
         {
             case "Lose weight":
                 food.setText("Yogurt - 6AM\n\nTofu Salad - 1PM\n\nBeef and Veggie Salad Bowl - 8PM");
+
                 break;
             case "Gain muscle":
                 food.setText("Organic milk and eggs- 6AM\n\nBrown rice - 1PM\n\nBeef and spinach - 8PM");
@@ -69,10 +71,10 @@ public class DefaultPlanView extends AppCompatActivity {
                 create(table);
                 break;
             case "Solve eating disorders":
-                food.setText("Organic milk and eggs- 6AM\n\nBrown rice - 1PM\n\nBeef and spinach - 8PM");
+                food.setText("Morning Meditation- 6AM\n\n Steamed Broccoli - 1PM\n\nBeef and spinach - 6PM\n\n1 Glass Milk - Before Bed");
                 break;
             case "Get help to solve health issues":
-                food.setText("Organic milk and eggs- 6AM\n\nBrown rice - 1PM\n\nBeef and spinach - 8PM");
+                food.setText("Milk and Cereal- 8AM\n\n Raw Vegetables - 12PM\n\n Soy-Ginger Salmon - 6PM\n\nMilk and Banana - 9PM");
                 break;
 
         }
@@ -114,6 +116,7 @@ public class DefaultPlanView extends AppCompatActivity {
         table.addView(row2);
         table.addView(row3);
     }
+
     public void OnClickAccept(View v) {
         Intent intent = new Intent(this, date_time_picker.class);
         Context context = getApplicationContext();
@@ -123,6 +126,50 @@ public class DefaultPlanView extends AppCompatActivity {
         toast.show();
         startActivity(intent);
     }
+
+    public void onEdit(View v) {
+
+        final String goal = getIntent().getStringExtra("goal");
+
+        switch (goal) {
+            case "Lose weight":
+                Intent intent = new Intent(DefaultPlanView.this, EditPlanLoseWeight.class);
+                startActivity(intent);
+
+                break;
+            case "Gain muscle":
+                Intent intent1 = new Intent(DefaultPlanView.this, EditPlanGainMuscle.class);
+                startActivity(intent1);
+                break;
+        }
+        /* Spinner goal = (Spinner) findViewById(R.id.spinnerGoal);
+        String goalValue = goal.getSelectedItem().toString();
+
+
+        if (goalValue == "Lose Weight") {
+            Intent intent = new Intent(this, EditPlanLoseWeight.class);
+            startActivity(intent);
+        }
+
+       else if (goalValue == "Gain Muscle") {
+            Intent intent = new Intent(this, EditPlanGainMuscle.class);
+            startActivity(intent);
+        }*/
+    }
+       /* Spinner goal = (Spinner) findViewById(R.id.spinnerGoal);
+        String goalText = goal.getSelectedItem().toString();
+
+         if(goalText.contentEquals("Lose Weight")) {
+            Intent intent = new Intent(this, EditPlanLoseWeight.class);
+            // Context context = getApplicationContext();
+            startActivity(intent);
+        }
+        if (goalText.contentEquals("Gain Muscle")){
+            Intent intent = new Intent(this, EditPlanGainMuscle.class);
+            // Context context = getApplicationContext();
+            startActivity(intent);
+        }*/
+
     /* @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

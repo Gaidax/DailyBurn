@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -21,6 +22,9 @@ public class date_time_picker extends Activity implements  View.OnClickListener 
     EditText txtDate, txtTime, reminderName;
     int mYear, mMonth, mDay, mHour, mMinute, mType;
     ClientDatabase dbRF;
+
+   // Spinner feedbackSpinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +32,10 @@ public class date_time_picker extends Activity implements  View.OnClickListener 
 
         btnDatePicker = (Button) findViewById(R.id.btn_date);
         btnTimePicker = (Button) findViewById(R.id.btn_time);
+        dbRF = new ClientDatabase(this);
+
         btnSaveNotification = (Button) findViewById(R.id.btnSet);
+     //   feedbackSpinner = (Spinner) findViewById(R.id.spinnerFeedback);
         txtDate = (EditText) findViewById(R.id.in_date);
         txtTime = (EditText) findViewById(R.id.in_time);
         reminderName = (EditText) findViewById(R.id.txtReminderName);
@@ -36,14 +43,22 @@ public class date_time_picker extends Activity implements  View.OnClickListener 
         btnTimePicker.setOnClickListener(this);
         btnSaveNotification.setOnClickListener(this);
 
+      /*  Spinner reminderSpinner = (Spinner) findViewById(R.id.timeSpinner);
+        reminderSpinner.setOnItemSelectedListener((OnItemSelectedListener) this);
+        String text = reminderSpinner.getSelectedItem().toString();
+       dbRF.addReminderItem(text);*/
+
+
 
     }
+
 
     public void onClick(View v) {
 
         String date = txtDate.getText().toString();
         String time = txtTime.getText().toString();
         String ReminderName = reminderName.getText().toString();
+   //     String feedbackOptions = feedbackSpinner.getSelectedItem().toString();
 
         if (v == btnDatePicker) {
 
@@ -103,17 +118,27 @@ public class date_time_picker extends Activity implements  View.OnClickListener 
             txtTime.requestFocus();
             txtTime.setError("Please Select the desired time to Proceed !! ");
         }
+      /*  else if (feedbackSpinner.getSelectedItemId() == -1){
+            Toast.makeText(date_time_picker.this,
+                    "Please select your feedback notification", Toast.LENGTH_LONG).show();
+
+        }*/
         else {
-            dbRF = new ClientDatabase(this);
+            Spinner reminderSpinner = (Spinner) findViewById(R.id.timeSpinner);
+            // reminderSpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+            String timeSelected = reminderSpinner.getSelectedItem().toString();
+            dbRF.addReminderItem(timeSelected);
             Intent intent = new Intent(date_time_picker.this, ProgressSurvey.class);
             Context context = getApplicationContext();
-            CharSequence text = ("Thank You. You will be notified based on your chosen preferences !! ");
+            CharSequence showText = ("Thank You. You will be notified based on your chosen preferences !! ");
             int duration = Toast.LENGTH_LONG;
-            Toast toast = Toast.makeText(context, text, duration);
+            Toast toast = Toast.makeText(context, showText, duration);
             toast.show();
             startActivity(intent);
         }
     }
+
+
 }
 
 

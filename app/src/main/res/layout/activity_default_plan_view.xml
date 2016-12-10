@@ -101,11 +101,13 @@
                 android:onClick="OnClickAccept" />
 
             <Button
-                android:text="Edit"
+                android:text="@string/edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button3"
-                android:layout_weight="1" />
+                android:id="@+id/btnEdit"
+                android:layout_weight="1"
+                android:onClick="onEdit"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:text="Create New"

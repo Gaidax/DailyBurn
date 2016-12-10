@@ -68,6 +68,7 @@ public class ClientDatabase extends SQLiteOpenHelper {
 
     private static final String KEY_NOTIFICATIONS_ID = "notificationsId";
     private static final String KEY_NOTIFICATIONS = "notificationsItem";
+    private static final String KEY_NOTIFICATIONS_PROFILED = "notificationsProfileId";
 
     //Food item history table
     private static final String KEY_FOODHISTORY_PRIMARYID = "foodHistoryPKID";
@@ -169,19 +170,21 @@ public class ClientDatabase extends SQLiteOpenHelper {
                 + " FOREIGN KEY ("+KEY_FEEDBACK_PROFILEID+") REFERENCES "+TABLE_PROFILES+" ("+ KEY_PROFILE_ID +")"
                 + ");";
 
-
         final String CREATE_NOTIFICATIONS_TABLE = "CREATE TABLE " + TABLE_NOTIFICATIONS + " ("
                 + KEY_NOTIFICATIONS_ID + "INTEGER PRIMARY KEY AUTOINCREMENT ,"
                 + KEY_NOTIFICATIONS + "TEXT "
-                + "FOREIGN KEY ("+KEY_NOTIFICATIONS_ID+") REFERENCES "+TABLE_PROFILES+" ("+KEY_PROFILE_ID+"));";
+                + KEY_NOTIFICATIONS_PROFILED + "INTEGER, "
+                + "FOREIGN KEY ("+KEY_NOTIFICATIONS_PROFILED+") REFERENCES "+TABLE_PROFILES+" ("+KEY_PROFILE_ID+"));";
+
         try {
             db.execSQL(CREATE_FOOD_ITEMS_TABLE);
             db.execSQL(CREATE_PROFILE_TABLE);
             db.execSQL(CREATE_RESTRICTED_ITEMS_TABLE);
             db.execSQL(CREATE_FOOD_HISTORY_TABLE);
             db.execSQL(CREATE_FEEDBACK_TABLE);
-          //  db.execSQL(CREATE_NOTIFICATIONS_TABLE);
-        } catch(Exception e){
+            db.execSQL(CREATE_NOTIFICATIONS_TABLE);
+        }
+        catch(Exception e){
             Log.d("boom", "---------------------------------------------------------");}
     }
 
@@ -628,48 +631,22 @@ public class ClientDatabase extends SQLiteOpenHelper {
     void addFeedbackItem(String response){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-
         values.put(KEY_FEEDBACK, response);
-
-
         db.insert(TABLE_FEEDBACK, null, values);
         db.close(); // Closing database connection
 
     }
 
-    void addReminderItem(String reminderTime) {
+    void addReminderItem(String timeSelected) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-
-        values.put(KEY_NOTIFICATIONS, reminderTime);
-
+        values.put(KEY_NOTIFICATIONS, timeSelected);
         db.insert(TABLE_NOTIFICATIONS, null, values);
         db.close();
     }
-    /*void addFeedbackItem(FeedBackInfo FeedBackInfo){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
 
-        values.put(KEY_FeedBack_ID, FeedBackInfo.getFeedbackId() );
-        values.put(KEY_FeedBack_Yes, FeedBackInfo.getFeedbackYes());
-        values.put(KEY_FeedBack_No, FeedBackInfo.getFeedbackNo());
 
-        db.insert(TABLE_FEEDBACK, null, values);
-        db.close();
-    }*/
 
-    /*FeedBackInfo getFeedBackInfoById(int id){
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(TABLE_FEEDBACK, new String[] {KEY_FeedBack_ID, KEY_FeedBack_Yes, KEY_FeedBack_No, KEY_PROFILE_ID}, KEY_FeedBack_ID + "=?" , new String[] {String.valueOf(id)}, null, null, null, null );
-        if (cursor != null)
-            cursor.moveToFirst();
-
-        FeedBackInfo FeedBack = new FeedBackInfo(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), Integer.parseInt(cursor.getString(4))));
-        cursor.close();
-        db.close();
-        return FeedBack;
-    }*/
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -1224,5 +1201,3 @@ public class ClientDatabase extends SQLiteOpenHelper {
     }
 }
 
-/*public class ClientDatabase {
-}*/
