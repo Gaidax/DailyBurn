@@ -26,38 +26,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
-        android:id="@+id/chkFood1"
+        android:id="@+id/weightFood01"
         android:layout_below="@+id/chgFood"
-        android:layout_alignStart="@+id/chkFood2"
-        android:layout_alignEnd="@+id/chkFood2" />
+        android:layout_alignStart="@+id/weightFood02"
+        android:layout_alignEnd="@+id/weightFood02" />
 
     <CheckBox
         android:text="Tofu Salad - 1PM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="31dp"
-        android:id="@+id/chkFood2"
-        android:layout_below="@+id/chkFood1"
-        android:layout_alignStart="@+id/chkFood3"
-        android:layout_alignEnd="@+id/chkFood3" />
+        android:id="@+id/weightFood02"
+        android:layout_below="@+id/weightFood01"
+        android:layout_alignStart="@+id/weightFood03"
+        android:layout_alignEnd="@+id/weightFood03" />
 
     <CheckBox
         android:text="Beef and Veggie Salad Bowl - 8PM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:id="@+id/chkFood3"
-        android:layout_below="@+id/chkFood2"
+        android:id="@+id/weightFood03"
+        android:layout_below="@+id/weightFood02"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:text="Remove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnRemove"
+        android:id="@+id/btnLoseRemove"
         android:layout_marginTop="58dp"
-        android:layout_below="@+id/chkFood3"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClick"/>
+        android:layout_below="@+id/weightFood03"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

@@ -21,17 +21,17 @@ public class MenuActivity extends AppCompatActivity {
         final String allergy = getIntent().getStringExtra("allergy");
         final String goal = getIntent().getStringExtra("goal");
 
-        TextView welcome = (TextView)findViewById(R.id.txtWelcome) ;
+        TextView welcome = (TextView) findViewById(R.id.txtWelcome);
         String message = ("Welcome to your home page " + yourName);
         welcome.setTextSize(18);
         welcome.setText(message);
 
-        final RadioGroup group = (RadioGroup)findViewById(R.id.group);
+        final RadioGroup group = (RadioGroup) findViewById(R.id.group);
         group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup arg0, int id) {
                 switch (id) {
                     case R.id.option1:
-                        Intent intent = new Intent (MenuActivity.this, DefaultPlanView.class);
+                        Intent intent = new Intent(MenuActivity.this, DefaultPlanView.class);
                         intent.putExtra("name", yourName);
                         intent.putExtra("gender", gender);
                         intent.putExtra("age", age);
@@ -40,9 +40,15 @@ public class MenuActivity extends AppCompatActivity {
                         intent.putExtra("allergy", allergy);
                         intent.putExtra("goal", goal);
                         startActivity(intent);
+break;
+                    case R.id.option3:
+                        Intent intent2 = new Intent(MenuActivity.this, AppTutorialVideo.class);
+                        startActivity(intent2);
+                        break;
                 }
             }
         });
-
     }
 }
+
+

@@ -22,50 +22,49 @@
         android:layout_centerHorizontal="true" />
 
     <CheckBox
-        android:text="Steamed Broccoli - 1PM"
+        android:text="@string/steamed_broccoli_1pm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:id="@+id/checkBox5"
-        android:layout_below="@+id/checkBox4"
-        android:layout_alignStart="@+id/checkBox4"
-        android:layout_alignEnd="@+id/checkBox4" />
+        android:id="@+id/disorderItem02"
+        android:layout_below="@+id/disorderItem01"
+        android:layout_alignStart="@+id/disorderItem01"
+        android:layout_alignEnd="@+id/disorderItem01" />
 
     <CheckBox
-        android:text="Morning Meditation- 6AM"
+        android:text="@string/morning_meditation_6am"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:id="@+id/checkBox4"
+        android:id="@+id/disorderItem01"
         android:layout_below="@+id/txtChgFood"
         android:layout_centerHorizontal="true" />
 
     <CheckBox
-        android:text="1 Glass Milk - Before Bed"
+        android:text="@string/_1_glass_milk_before_bed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/checkBox6"
-        android:layout_alignStart="@+id/checkBox6"
+        android:layout_below="@+id/disorderItem03"
+        android:layout_alignStart="@+id/disorderItem03"
         android:layout_marginTop="15dp"
-        android:id="@+id/checkBox7" />
+        android:id="@+id/disorderItem04" />
 
     <CheckBox
-        android:text="Beef and spinach - 6PM"
+        android:text="@string/beef_and_spinach_6pm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
-        android:id="@+id/checkBox6"
-        android:layout_below="@+id/checkBox5"
-        android:layout_alignStart="@+id/checkBox5"
-        android:layout_alignEnd="@+id/checkBox5" />
+        android:id="@+id/disorderItem03"
+        android:layout_below="@+id/disorderItem02"
+        android:layout_alignStart="@+id/disorderItem02"
+        android:layout_alignEnd="@+id/disorderItem02" />
 
     <Button
-        android:text="Remove"
+        android:text="@string/remove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnRemove"
-        android:onClick="onClick"
+        android:id="@+id/btnDisorderRemove"
         android:layout_marginTop="33dp"
-        android:layout_below="@+id/checkBox7"
+        android:layout_below="@+id/disorderItem04"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

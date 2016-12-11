@@ -47,6 +47,13 @@
     <string name="yes_i_followed_my_plan">Yes, I followed my Plan</string>
     <string name="edit_your_food_items">Edit Your Food Items</string>
     <string name="edit">Edit</string>
+    <string name="remove">Remove</string>
+    <string name="_1_glass_milk_before_bed">1 Glass Milk - Before Bed</string>
+    <string name="beef_and_spinach_6pm">Beef and spinach - 6PM</string>
+    <string name="morning_meditation_6am">Morning Meditation- 6AM</string>
+    <string name="steamed_broccoli_1pm">Steamed Broccoli - 1PM</string>
+    <string name="accept">Accept</string>
+    <string name="create_new">Create New</string>
     <string-array name="feedbackOptions">
         <item>None</item>
         <item> Daily</item>

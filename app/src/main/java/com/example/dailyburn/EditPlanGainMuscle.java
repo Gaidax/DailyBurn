@@ -18,7 +18,7 @@ public class EditPlanGainMuscle extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_plan_gain_muscle);
 
-        Button removeButton = (Button) findViewById(R.id.btnRemove);
+        Button removeButton = (Button) findViewById(R.id.btnMuscleRemove);
         food01 = (CheckBox) findViewById(R.id.chkFood01);
         food02 = (CheckBox) findViewById(R.id.chkFood02);
         food03 = (CheckBox) findViewById(R.id.chkFood03);
@@ -39,7 +39,7 @@ public class EditPlanGainMuscle extends AppCompatActivity {
                     startActivity(intent);
 
                 } else if (food02.isChecked()) {
-                    Toast.makeText(EditPlanGainMuscle.this, "You selected " + food02.getText(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditPlanGainMuscle.this, "You removed " + food02.getText(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(EditPlanGainMuscle.this, date_time_picker.class);
                     Context context = getApplicationContext();
                     CharSequence showText = ("Your Plan is being updated...!! ");
@@ -49,7 +49,7 @@ public class EditPlanGainMuscle extends AppCompatActivity {
                     startActivity(intent);
 
                 } else if (food03.isChecked()) {
-                    Toast.makeText(EditPlanGainMuscle.this, "You selected " + food03.getText(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditPlanGainMuscle.this, "You removed " + food03.getText(), Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(EditPlanGainMuscle.this, date_time_picker.class);
                     Context context = getApplicationContext();

@@ -21,49 +21,51 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <CheckBox
-        android:text="Soy-Ginger Salmon - 6PM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:id="@+id/checkBox10"
-        android:layout_below="@+id/checkBox9"
-        android:layout_alignStart="@+id/checkBox9" />
-
     <Button
         android:text="Remove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="31dp"
-        android:id="@+id/btnRemove"
-        android:layout_below="@+id/checkBox11"
+        android:id="@+id/btnHeatlhRemove"
+        android:layout_below="@+id/foodItem04"
         android:layout_centerHorizontal="true" />
-
-    <CheckBox
-        android:text="Milk and Banana - 9PM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkBox11"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/checkBox10"
-        android:layout_alignStart="@+id/checkBox10" />
-
-    <CheckBox
-        android:text="Milk and Cereal- 8AM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:id="@+id/checkBox8"
-        android:layout_below="@+id/txtChgFood"
-        android:layout_alignEnd="@+id/txtChgFood"
-        android:layout_marginEnd="17dp" />
 
     <CheckBox
         android:text="Raw Vegetables - 12PM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:id="@+id/checkBox9"
-        android:layout_below="@+id/checkBox8"
+        android:id="@+id/foodItem02"
+        android:layout_below="@+id/foodItem01"
         android:layout_alignEnd="@+id/txtChgFood" />
+
+    <CheckBox
+        android:text="Soy-Ginger Salmon - 6PM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/foodItem03"
+        android:layout_below="@+id/foodItem02"
+        android:layout_alignStart="@+id/foodItem02"
+        android:layout_alignEnd="@+id/foodItem02" />
+
+    <CheckBox
+        android:text="Milk and Banana - 9PM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/foodItem04"
+        android:layout_below="@+id/foodItem03"
+        android:layout_alignStart="@+id/foodItem03"
+        android:layout_marginTop="25dp"
+        android:layout_alignEnd="@+id/foodItem03" />
+
+    <CheckBox
+        android:text="Milk and Cereal- 8AM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:id="@+id/foodItem01"
+        android:layout_below="@+id/txtChgFood"
+        android:layout_alignEnd="@+id/txtChgFood"
+        android:layout_alignStart="@+id/foodItem02" />
 </RelativeLayout>
