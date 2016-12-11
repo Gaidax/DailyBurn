@@ -23,7 +23,10 @@
         <activity android:name=".FeedBackInfo" />
         <activity android:name=".ProgressSurvey" />
         <activity android:name=".EditPlanLoseWeight" />
-        <activity android:name=".EditPlanGainMuscle"></activity>
+        <activity android:name=".EditPlanGainMuscle" />
+        <activity android:name=".editPlanSolveEatingDisorders" />
+        <activity android:name=".editPlanHealthIssues" />
+        <activity android:name=".AppTutorialVideo"></activity>
     </application>
 
 </manifest>

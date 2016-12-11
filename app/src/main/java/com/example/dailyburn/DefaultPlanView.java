@@ -71,10 +71,10 @@ public class DefaultPlanView extends AppCompatActivity {
                 create(table);
                 break;
             case "Solve eating disorders":
-                food.setText("Morning Meditation- 6AM\n\n Steamed Broccoli - 1PM\n\nBeef and spinach - 6PM\n\n1 Glass Milk - Before Bed");
+                food.setText("Morning Meditation- 6AM\n\nSteamed Broccoli - 1PM\n\nBeef and spinach - 6PM\n\n1 Glass Milk - Before Bed");
                 break;
             case "Get help to solve health issues":
-                food.setText("Milk and Cereal- 8AM\n\n Raw Vegetables - 12PM\n\n Soy-Ginger Salmon - 6PM\n\nMilk and Banana - 9PM");
+                food.setText("Milk and Cereal- 8AM\n\nRaw Vegetables - 12PM\n\n Soy-Ginger Salmon - 6PM\n\nMilk and Banana - 9PM");
                 break;
 
         }
@@ -140,6 +140,14 @@ public class DefaultPlanView extends AppCompatActivity {
             case "Gain muscle":
                 Intent intent1 = new Intent(DefaultPlanView.this, EditPlanGainMuscle.class);
                 startActivity(intent1);
+                break;
+            case "Solve eating disorders":
+                Intent intent2 = new Intent(DefaultPlanView.this, editPlanSolveEatingDisorders.class);
+                startActivity(intent2);
+                break;
+            case "Get help to solve health issues":
+                 Intent intent3 = new Intent(DefaultPlanView.this, editPlanHealthIssues.class);
+                startActivity(intent3);
                 break;
         }
         /* Spinner goal = (Spinner) findViewById(R.id.spinnerGoal);
