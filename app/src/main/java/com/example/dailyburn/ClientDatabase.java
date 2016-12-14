@@ -638,6 +638,21 @@ public class ClientDatabase extends SQLiteOpenHelper {
 
     }
 
+    // Getting all feedback info
+    public List<FeedBackInfo> getAllFeedbackInfo(String queryString) {
+        List<FeedBackInfo> Feedback = new ArrayList<FeedBackInfo>();
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_FEEDBACK;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+
+        cursor.close();
+        db.close();
+        // return Restaurant list
+        return Feedback;
+    }
    /* void addReminderItem(String timeSelected) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
