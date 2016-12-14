@@ -54,7 +54,7 @@ public class DefaultPlanView extends AppCompatActivity {
         switch (goal)
         {
             case "Lose weight":
-                food.setText("Yogurt - 6AM\n\nTofu Salad - 1PM\n\nBeef and Veggie Salad Bowl - 8PM");
+                food.setText("Plain Yogurt - 6AM\n\nTofu Salad - 1PM\n\nVeggie Salad - 8PM");
 
                 break;
             case "Gain muscle":

@@ -12,7 +12,7 @@ public class MyReceiver extends BroadcastReceiver {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_receiver);
+        setContentView(R.layout.activity_summary);
     }
     */
 

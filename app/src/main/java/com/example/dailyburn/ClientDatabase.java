@@ -628,6 +628,7 @@ public class ClientDatabase extends SQLiteOpenHelper {
         return toBeReturned;
     }
 
+
     void addFeedbackItem(String response){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -637,13 +638,13 @@ public class ClientDatabase extends SQLiteOpenHelper {
 
     }
 
-    void addReminderItem(String timeSelected) {
+   /* void addReminderItem(String timeSelected) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_NOTIFICATIONS, timeSelected);
         db.insert(TABLE_NOTIFICATIONS, null, values);
         db.close();
-    }
+    }*/
 
 
 

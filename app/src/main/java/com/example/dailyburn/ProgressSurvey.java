@@ -1,4 +1,7 @@
 package com.example.dailyburn;
+
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioGroup;
@@ -29,9 +32,16 @@ public class ProgressSurvey extends AppCompatActivity {
                     response = "No, I did not follow my Plan";
                 }
                 dbRF.addFeedbackItem(response);
+                Intent intent = new Intent(ProgressSurvey.this, Summary.class);
+                CharSequence text = ("You selected " +response+ "\n Your response is stored");
+                int duration = Toast.LENGTH_SHORT;
+                Context context = getApplicationContext();
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                startActivity(intent);
+                /*Toast.makeText(ProgressSurvey.this, "You selected " +response+ "\n Your response is stored",
+                        Toast.LENGTH_LONG).show();*/
 
-                Toast.makeText(ProgressSurvey.this, "You selected " +response+ "\n Your response is stored",
-                        Toast.LENGTH_LONG).show();
             }
 
 
