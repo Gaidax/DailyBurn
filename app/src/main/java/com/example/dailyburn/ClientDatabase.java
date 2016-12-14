@@ -637,29 +637,62 @@ public class ClientDatabase extends SQLiteOpenHelper {
         db.close(); // Closing database connection
 
     }
+    void addFeedbackItem(FeedBackInfo feedBackInfo)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_FEEDBACK_ID, feedBackInfo.getFeedbackId());
+        values.put(KEY_FEEDBACK, feedBackInfo.getResponse());
+        values.put(KEY_FEEDBACK_PROFILEID, feedBackInfo.getProfileId());
+        db.insert(TABLE_FEEDBACK, null, values);
+        db.close(); // Closing database connection
+    }
 
     // Getting all feedback info
     public List<FeedBackInfo> getAllFeedbackInfo(String queryString) {
-        List<FeedBackInfo> Feedback = new ArrayList<FeedBackInfo>();
+        List<FeedBackInfo> FeedbackList = new ArrayList<FeedBackInfo>();
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_FEEDBACK;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
+        if (cursor.moveToFirst()) {
+            do {
+                FeedBackInfo feedBackInfo = new FeedBackInfo();
+                feedBackInfo.setFeedbackId(Integer.parseInt(cursor.getString(0)));
+                feedBackInfo.setProfileId(Integer.parseInt(cursor.getString(1)));
+                feedBackInfo.setResponse((cursor.getString(2)));
 
+                // Adding Restaurant to list
+                FeedbackList.add(feedBackInfo);
+
+            } while (cursor.moveToNext());
+        }
         cursor.close();
         db.close();
         // return Restaurant list
-        return Feedback;
+        return FeedbackList;
     }
-   /* void addReminderItem(String timeSelected) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(KEY_NOTIFICATIONS, timeSelected);
-        db.insert(TABLE_NOTIFICATIONS, null, values);
+
+    FeedBackInfo getFeedbackById(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_FEEDBACK, new String[] { KEY_FEEDBACK_ID,
+                        KEY_FEEDBACK}, KEY_FEEDBACK_PROFILEID + "= ?",
+                new String[] { String.valueOf(id) }, null, null, null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        FeedBackInfo feedBackInfo = new FeedBackInfo((Integer.parseInt(cursor.getString(0))),
+                Integer.parseInt((cursor.getString(1))), cursor.getString(2));//, cursor.getString(5)); //███
+
+        cursor.close();
         db.close();
-    }*/
+        return feedBackInfo;
+    }
+
 
 
 
