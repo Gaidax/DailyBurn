@@ -1,7 +1,9 @@
 package com.example.dailyburn;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -18,10 +20,12 @@ import java.util.Calendar;
 
 public class date_time_picker extends Activity implements  View.OnClickListener {
 
+    private PendingIntent pendingIntent;
     Button btnDatePicker, btnTimePicker, btnSaveNotification;
     EditText txtDate, txtTime, reminderName;
     int mYear, mMonth, mDay, mHour, mMinute, mType;
     ClientDatabase dbRF;
+    static int calendarday,calendarmonth,calendaryear,calendarhour,calendarminute,calendarampm;
 
    // Spinner feedbackSpinner;
 
@@ -32,7 +36,7 @@ public class date_time_picker extends Activity implements  View.OnClickListener 
 
         btnDatePicker = (Button) findViewById(R.id.btn_date);
         btnTimePicker = (Button) findViewById(R.id.btn_time);
-        dbRF = new ClientDatabase(this);
+      //  dbRF = new ClientDatabase(this);
 
         btnSaveNotification = (Button) findViewById(R.id.btnSet);
      //   feedbackSpinner = (Spinner) findViewById(R.id.spinnerFeedback);
@@ -76,7 +80,10 @@ public class date_time_picker extends Activity implements  View.OnClickListener 
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
 
-                            txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            txtDate.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+                            calendaryear=year;
+                            calendarmonth=monthOfYear;
+                            calendarday=dayOfMonth;
 
                         }
                     }, mYear, mMonth, mDay);
@@ -96,11 +103,15 @@ public class date_time_picker extends Activity implements  View.OnClickListener 
                             String AM_PM;
                             if (hourOfDay < 12) {
                                 AM_PM = "AM";
+                                calendarampm=0;
                             } else {
                                 AM_PM = "PM";
+                                calendarampm=1;
                             }
 
                             txtTime.setText(hourOfDay + ":" + minute + " " + AM_PM);
+                            calendarhour=(hourOfDay);
+                            calendarminute=minute;
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
@@ -127,15 +138,50 @@ public class date_time_picker extends Activity implements  View.OnClickListener 
             Spinner reminderSpinner = (Spinner) findViewById(R.id.timeSpinner);
             // reminderSpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
             String timeSelected = reminderSpinner.getSelectedItem().toString();
-            dbRF.addReminderItem(timeSelected);
-            Intent intent = new Intent(date_time_picker.this, ProgressSurvey.class);
+           // dbRF.addReminderItem(timeSelected);
+          //  Intent intent = new Intent(date_time_picker.this, ProgressSurvey.class);
             Context context = getApplicationContext();
             CharSequence showText = ("Thank You. You will be notified based on your chosen preferences !! ");
             int duration = Toast.LENGTH_LONG;
             Toast toast = Toast.makeText(context, showText, duration);
             toast.show();
-            startActivity(intent);
+           // startActivity(intent);
         }
+        if(v==btnSaveNotification) {
+
+
+
+            Calendar calendar = Calendar.getInstance();
+
+            calendar.set(Calendar.MONTH, calendarmonth);
+            calendar.set(Calendar.YEAR, calendaryear);
+            calendar.set(Calendar.DAY_OF_MONTH, calendarday);
+
+            calendar.set(Calendar.HOUR_OF_DAY, calendarhour);
+            calendar.set(Calendar.MINUTE, calendarminute);
+            calendar.set(Calendar.SECOND, 0);
+            calendar.set(Calendar.AM_PM,calendarampm);
+
+            // txtview2.setText("year: "+calendaryear+" month:"+calendarmonth+" day: "+calendarday+" hour: "+calendarhour+" minute: "+calendarminute+" AM/PM: "+calendarampm);
+
+
+
+
+
+
+
+            Intent myIntent = new Intent(date_time_picker.this, MyReceiver.class);
+            pendingIntent = PendingIntent.getBroadcast(date_time_picker.this, 0, myIntent,0);
+
+            AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+            alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
+
+
+
+
+
+        }
+
     }
 
 

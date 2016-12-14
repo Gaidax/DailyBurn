@@ -25,28 +25,20 @@
         android:text="Yogurt - 6AM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="39dp"
         android:id="@+id/weightFood01"
+        android:textAlignment="center"
         android:layout_below="@+id/chgFood"
         android:layout_alignStart="@+id/weightFood02"
         android:layout_alignEnd="@+id/weightFood02" />
 
     <CheckBox
-        android:text="Tofu Salad - 1PM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:id="@+id/weightFood02"
-        android:layout_below="@+id/weightFood01"
-        android:layout_alignStart="@+id/weightFood03"
-        android:layout_alignEnd="@+id/weightFood03" />
-
-    <CheckBox
         android:text="Beef and Veggie Salad Bowl - 8PM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="14dp"
         android:id="@+id/weightFood03"
+        android:textAlignment="center"
         android:layout_below="@+id/weightFood02"
         android:layout_centerHorizontal="true" />
 
@@ -55,8 +47,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnLoseRemove"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="41dp"
         android:layout_below="@+id/weightFood03"
         android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:text="Tofu Salad - 1PM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:id="@+id/weightFood02"
+        android:textAlignment="center"
+        android:layout_below="@+id/weightFood01"
+        android:layout_alignEnd="@+id/weightFood03"
+        android:layout_alignStart="@+id/weightFood03" />
 
 </RelativeLayout>
