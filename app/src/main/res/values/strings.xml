@@ -54,6 +54,8 @@
     <string name="steamed_broccoli_1pm">Steamed Broccoli - 1PM</string>
     <string name="accept">Accept</string>
     <string name="create_new">Create New</string>
+    <string name="your_summary">Your Summary</string>
+    <string name="you_were_90_accurate_with_your_plan_n_n_good_job_n_nbased_on_your_goal_you_lost_5_kg_n_n_your_new_weight_is_45_kg">You were 90% accurate with your Plan\n\n Good Job !!\n\nBased on your goal, you lost 5 Kg\n\n Your new weight is 45 Kg !!</string>
     <string-array name="feedbackOptions">
         <item>None</item>
         <item> Daily</item>

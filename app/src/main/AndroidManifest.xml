@@ -33,6 +33,7 @@
         <activity android:name=".ProgressSurvey" />
         <activity android:name=".EditPlanLoseWeight" />
         <activity android:name=".EditPlanGainMuscle" />
+        <activity android:name=".AppTutorialVideo"/>
         <activity android:name=".Summary" />
 
         <service
