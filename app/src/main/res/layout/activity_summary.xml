@@ -10,27 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.dailyburn.MyReceiver">
 
-    <TextView
-        android:text="@string/your_summary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:id="@+id/txtSummary"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textStyle="normal|bold"
-        android:textSize="24sp"
-        android:textAlignment="center" />
-
-    <TextView
-        android:text="@string/you_were_90_accurate_with_your_plan_n_n_good_job_n_nbased_on_your_goal_you_lost_5_kg_n_n_your_new_weight_is_45_kg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:id="@+id/textView11"
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/txtSummary"
-        android:layout_centerHorizontal="true"
-        android:textStyle="normal|bold"
-        android:textSize="18sp" />
+        android:layout_alignEnd="@+id/txtSummary"
+        android:layout_marginTop="13dp"
+        android:id="@+id/namesList" />
 
 </RelativeLayout>

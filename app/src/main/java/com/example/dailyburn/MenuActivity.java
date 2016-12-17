@@ -45,6 +45,11 @@ break;
                         Intent intent2 = new Intent(MenuActivity.this, AppTutorialVideo.class);
                         startActivity(intent2);
                         break;
+
+                    case R.id.results:
+                        Intent intent3 = new Intent(MenuActivity.this, Summary.class);
+                        startActivity(intent3);
+                        break;
                 }
             }
         });

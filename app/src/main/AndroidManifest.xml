@@ -6,8 +6,12 @@
         android:minSdkVersion="19"
         android:targetSdkVersion="24" />
 
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -27,13 +31,12 @@
         <activity android:name=".date_time_picker" />
         <activity android:name=".CalendarViewActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".editPlanSolveEatingDisorders"/>
-        <activity android:name=".editPlanHealthIssues"/>
+        <activity android:name=".editPlanSolveEatingDisorders" />
+        <activity android:name=".editPlanHealthIssues" />
         <activity android:name=".FeedBackInfo" />
         <activity android:name=".ProgressSurvey" />
         <activity android:name=".EditPlanLoseWeight" />
         <activity android:name=".EditPlanGainMuscle" />
-        <activity android:name=".AppTutorialVideo"/>
         <activity android:name=".Summary" />
 
         <service
@@ -43,6 +46,7 @@
 
         <receiver android:name=".MyReceiver" />
 
+        <activity android:name=".Summary2"></activity>
     </application>
 
 </manifest>

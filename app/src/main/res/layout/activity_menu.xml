@@ -44,6 +44,13 @@
                 android:textAlignment="center" />
 
             <RadioButton
+                android:text="Show Foods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/results"
+                android:layout_weight="1" />
+
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/option3"
